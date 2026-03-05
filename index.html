@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bread & Pastry</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;   /* Offset for sticky nav height */
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #faf6f1;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #d9a87e 0%, #c68a5e 100%);
+      color: white;
+      text-align: center;
+      padding: 90px 20px 70px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .site-subtitle {
+      margin: 14px 0 0;
+      font-size: 1.4rem;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(to right, transparent, #b06c3b 30%, transparent 70%);
+    }
+
+    nav {
+      background: #f1d2b6;
+      padding: 1.3rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      margin: 0 10px;
+      background: #b06c3b;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #8e5631;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #intro {
+      padding-top: 30px;   /* Clean start after nav */
+    }
+
+    h2 {
+      color: #b06c3b;
+      text-align: center;
+      margin: 0 0 2rem;
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+
+    .intro-hero {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      margin: 0 auto 2.5rem;
+      display: block;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.18rem;
+      text-align: center;
+      color: #444;
+    }
+
+    .intro-text strong {
+      color: #8e5631;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+      width: 300px;
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.13);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 1.4rem 1.2rem 0.7rem;
+      color: #5d4037;
+    }
+
+    .card p {
+      margin: 0 1.4rem 1.6rem;
+      color: #555;
+      font-size: 0.96rem;
+    }
+
+    #about .card {
+      max-width: 560px;
+    }
+
+    footer {
+      background: #d9a87e;
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .site-title    { font-size: 3rem; }
+      .site-subtitle { font-size: 1.2rem; }
+      header         { padding: 70px 15px 55px; }
+      nav            { padding: 1rem; }
+      .btn           { margin: 6px 8px; padding: 10px 20px; }
+      .card          { width: 100%; max-width: 360px; }
+      html           { scroll-padding-top: 110px; }
+      .intro-hero    { max-height: 360px; }
+    }
+
+    @media (max-width: 500px) {
+      h2 { font-size: 2.1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-content">
+      <h1 class="site-title">Bread & Pastry</h1>
+      <p class="site-subtitle">Artisan Baking • Recipes • Tools & Techniques</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#intro" class="btn">Introduction</a>
+    <a href="#tools" class="btn">Tools</a>
+    <a href="#about" class="btn">About</a>
+    <a href="#recipes" class="btn">Recipes</a>
+  </nav>
+
+  <section id="intro">
+    <h2>Welcome to the World of Baking</h2>
+
+    <img 
+      class="intro-hero" 
+      src="https://thumbs.dreamstime.com/b/freshly-baked-artisan-bread-wooden-cutting-board-steam-rising-warm-inviting-kitchen-scene-ai-generated-396815722.jpg" 
+      alt="Freshly baked artisan bread with steam rising on wooden board – warm, inviting bakery atmosphere"
+    >
+
+    <div class="intro-text">
+      <p>
+        Bread and pastry making is more than a skill — it's an <strong>art</strong> that blends creativity, science, and patience. 
+        There’s something magical about turning simple ingredients into something warm, fragrant, and deeply comforting.
+      </p>
+      <p>
+        From the crackle of a golden sourdough crust to the buttery, flaky layers of a perfect croissant — baking fills homes with irresistible aromas and creates moments worth savoring.
+      </p>
+      <p>
+        Whether you're just starting or have flour in your veins, welcome to <strong>Bread & Pastry</strong> — your cozy space for recipes, tools, tips, and inspiration.
+      </p>
+    </div>
+  </section>
+
+  <section id="tools">
+  <h2>Essential Tools</h2>
+
+  <div class="container">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484b9?auto=format&fit=crop&q=80&w=800" 
+           alt="Wooden rolling pin on floured dough">
+      <h3>Rolling Pin</h3>
+      <p>Essential for evenly flattening and shaping dough.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556911220-b0b895fafb40?auto=format&fit=crop&q=80&w=800" 
+           alt="Stand mixer with dough hook in kitchen">
+      <h3>Stand Mixer</h3>
+      <p>Makes quick work of mixing and kneading heavy doughs.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1583417317257-8b6d8e8e8e8e?auto=format&fit=crop&q=80&w=800" 
+           alt="Measuring cups and spoons set for baking">
+      <h3>Measuring Tools</h3>
+      <p>Precision cups, spoons, and scales for consistent results.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="about">
+    <h2>About Baking</h2>
+    <div class="card" style="margin: 0 auto;">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop" alt="Fresh baked bread">
+      <h3>The Art of Baking</h3>
+      <p>
+        Baking is equal parts science and soul. With quality ingredients — flour, yeast, butter, sugar — and a bit of patience and practice, simple components become warm loaves, flaky pastries, and memories around the table.
+      </p>
+    </div>
+  </section>
+
+  <section id="recipes">
+    <h2>Popular Recipes</h2>
+    <div class="container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=800&auto=format&fit=crop" alt="Basic bread">
+        <h3>Basic Bread</h3>
+        <p>Flour, yeast, water, salt, sugar — the classic everyday loaf.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&auto=format&fit=crop" alt="Croissant">
+        <h3>Butter Croissant</h3>
+        <p>Laminated dough and plenty of butter — flaky French perfection.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=800&auto=format&fit=crop" alt="Chocolate muffin">
+        <h3>Chocolate Muffin</h3>
+        <p>Rich cocoa, moist texture, chocolate chips — pure comfort.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Bread & Pastry Webpage • Made with ♡ for bakers everywhere
+  </footer>
+
+</body>
+</html>
